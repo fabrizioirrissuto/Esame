@@ -140,53 +140,58 @@ public class Main {
 			System.out.println("INSERISCI ID DOCENTE ");
 			BufferedReader bufferedReader111 = new BufferedReader(new InputStreamReader(System.in));
 			int scelta_id =Integer.parseInt(bufferedReader111.readLine());
-			System.out.println("INSERISCI IL CODICE CORSO DA ASSOCIARE: ");
-			BufferedReader bufferedReader11 = new BufferedReader(new InputStreamReader(System.in));
-			int scelta_cor =Integer.parseInt(bufferedReader11.readLine());
-			
-			corsotrovato=gestionecorso.TrovaCorso(scelta_cor,scelta_id);
-			if(corsotrovato==null) {
-				System.out.println("CORSO NON TROVATO O CORSO NON DEL DOCENTE ");
+			if(scelta_id==gestionecorso.TrovaIdDocente(scelta_id)) {
+				System.out.println("INSERISCI IL CODICE CORSO DA ASSOCIARE: ");
+				BufferedReader bufferedReader11 = new BufferedReader(new InputStreamReader(System.in));
+				int scelta_cor =Integer.parseInt(bufferedReader11.readLine());
+				corsotrovato=gestionecorso.TrovaCorso(scelta_cor,scelta_id);
+				if(corsotrovato==null) {
+					System.out.println("CORSO NON TROVATO O CORSO NON DEL DOCENTE ");
+				}
+				else {
+					
+					System.out.println("DA QUANTE DATE E' COMPOSTO L'APPELLO?  ");
+					BufferedReader bufferedReader12 = new BufferedReader(new InputStreamReader(System.in));
+					int num_date =Integer.parseInt(bufferedReader12.readLine());
+					appelloCreato=gestioneappello.Crea_Appello();
+					for(int i=0;i<num_date;i++) {
+						int z=i+1;
+						System.out.println("AGGIUNGI DATA ESAME "+z+" di "+num_date);
+						System.out.println("-------------------------------------- \n");
+						System.out.println("INSERISCI IL GIORNO(gg) ");
+						BufferedReader bufferedReader15 = new BufferedReader(new InputStreamReader(System.in));
+						int giorno =Integer.parseInt(bufferedReader15.readLine());
+						System.out.println("INSERISCI IL MESE(mm) ");
+						BufferedReader bufferedReader16 = new BufferedReader(new InputStreamReader(System.in));
+						int mese =Integer.parseInt(bufferedReader16.readLine());
+						System.out.println("INSERISCI IL L'ANNO(aaaa) ");
+						BufferedReader bufferedReader14 = new BufferedReader(new InputStreamReader(System.in));
+						int anno =Integer.parseInt(bufferedReader14.readLine());
+						LocalDate data_i = LocalDate.of(anno,mese,giorno);
+						System.out.println("INSERISCI TIPO PROVA");
+						BufferedReader bufferedReader17 = new BufferedReader(new InputStreamReader(System.in));
+						String TipoProva = bufferedReader17.readLine();
+						System.out.println("INSERISCI LUOGO");
+						BufferedReader bufferedReader18 = new BufferedReader(new InputStreamReader(System.in));
+						String TipoLuogo = bufferedReader18.readLine();
+						
+						
+						Data dataCreata=new Data(data_i,TipoProva,TipoLuogo);
+						appelloCreato.AssociaData(dataCreata);
+						
+						
+						
+					}
+					
+					appelloCreato.associaCorso(corsotrovato);
+					gestioneappello.Aggiungi_Appello(appelloCreato);
+					System.out.println("APPELLO CREATO ID: "+appelloCreato.getId());
+				}
 			}
 			else {
-				
-				System.out.println("DA QUANTE DATE E' COMPOSTO L'APPELLO?  ");
-				BufferedReader bufferedReader12 = new BufferedReader(new InputStreamReader(System.in));
-				int num_date =Integer.parseInt(bufferedReader12.readLine());
-				appelloCreato=gestioneappello.Crea_Appello();
-				for(int i=0;i<num_date;i++) {
-					int z=i+1;
-					System.out.println("AGGIUNGI DATA ESAME "+z+" di "+num_date);
-					System.out.println("-------------------------------------- \n");
-					System.out.println("INSERISCI IL GIORNO(gg) ");
-					BufferedReader bufferedReader15 = new BufferedReader(new InputStreamReader(System.in));
-					int giorno =Integer.parseInt(bufferedReader15.readLine());
-					System.out.println("INSERISCI IL MESE(mm) ");
-					BufferedReader bufferedReader16 = new BufferedReader(new InputStreamReader(System.in));
-					int mese =Integer.parseInt(bufferedReader16.readLine());
-					System.out.println("INSERISCI IL L'ANNO(aaaa) ");
-					BufferedReader bufferedReader14 = new BufferedReader(new InputStreamReader(System.in));
-					int anno =Integer.parseInt(bufferedReader14.readLine());
-					LocalDate data_i = LocalDate.of(anno,mese,giorno);
-					System.out.println("INSERISCI TIPO PROVA");
-					BufferedReader bufferedReader17 = new BufferedReader(new InputStreamReader(System.in));
-					String TipoProva = bufferedReader17.readLine();
-					System.out.println("INSERISCI LUOGO");
-					BufferedReader bufferedReader18 = new BufferedReader(new InputStreamReader(System.in));
-					String TipoLuogo = bufferedReader18.readLine();
-					
-					
-					Data dataCreata=new Data(data_i,TipoProva,TipoLuogo);
-					appelloCreato.AssociaData(dataCreata);
-					
-					
-					
-				}
-				
-				appelloCreato.associaCorso(corsotrovato);
-				gestioneappello.Aggiungi_Appello(appelloCreato);
-				System.out.println("APPELLO CREATO ID: "+appelloCreato.getId());
+				System.out.println("DOCENTE NON ESISTENTE");
 			}
+			
 			
 			System.out.println("PREMI 1 PER TORNARE AL MENU PRINCIPALE \nPREMI 2 PER USCIRE DAL PROGRAMMA");
 			BufferedReader bufferedReader87 = new BufferedReader(new InputStreamReader(System.in));

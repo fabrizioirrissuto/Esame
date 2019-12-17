@@ -71,6 +71,20 @@ public class GestioneCorso {
 	}
 		return corsoTrovato;
 	}
+ public int TrovaIdDocente(int id){
+		int i=0;
+		for(Docente d: Lista_docenti) {
+		 	if(d.getId()==id) {
+		 		i=d.getId();
+		 		
+		 		
+		 		
+		 	}
+		 
+}
+	return i;
+	
+}
  
 	
 }
