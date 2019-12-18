@@ -48,7 +48,7 @@ public class AppelloTest {
 		System.out.println("APPELLO NON PRESENTE");
 		
 	}
-	//test3:ricerco per id un appello,ci sono appelli,nessuno studente prenotato
+	//test3:Ricerco per id un appello,ci sono appelli,nessuno studente prenotato
 	@Test
 	public void test3VisualizzaStudentiPrenotati() {
 		boolean nessuno;
