@@ -33,7 +33,7 @@ public class AppelloTest {
 		id_appello=7;
 		lista_vuota=gestioneappello.NessunAppello();
 		assertTrue(lista_vuota);
-		
+		System.out.println("NESSUN APPELLO PRESENTE");
 		
 	}
 	//test2:ricerco per id un appello ,ci sono appelli,appello non presente
@@ -45,7 +45,7 @@ public class AppelloTest {
 		Appello appelloAppoggio=null;
 		appelloAppoggio=gestioneappello.TrovaAppello(id_appello);
 		assertNull(appelloAppoggio);
-		
+		System.out.println("APPELLO NON PRESENTE");
 		
 	}
 	//test3:ricerco per id un appello,ci sono appelli,nessuno studente prenotato
@@ -71,7 +71,7 @@ public class AppelloTest {
 		appelloapp=gestioneappello.TrovaAppello(id_app);
 		nessuno=appelloapp.NessunoStudentePrenotato();
 		assertTrue(nessuno);
-		
+		System.out.println("NESSUN STUDENTE PRENOTATO");
 		
 		
 	}
