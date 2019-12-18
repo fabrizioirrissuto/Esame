@@ -101,7 +101,7 @@ public class AppelloTest {
 		presenti=appellob.NessunoStudentePrenotato();
 		assertFalse(presenti);
 		appellob.VisualizzaStudentiPrenotati();
-		
+		//visualizzo studenti prenotati
 		
 		
 	}
