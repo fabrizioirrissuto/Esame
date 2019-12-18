@@ -23,7 +23,7 @@ public class AppelloTest {
 
 	
 
-
+//test 1:ricerco per id,un appello e non è presente nessun appello
 	@Test
 	public void test1VisualizzaStudentiPrenotati() {
 		GestioneAppello gestioneappello=new GestioneAppello();
@@ -36,6 +36,7 @@ public class AppelloTest {
 		
 		
 	}
+	//test2:ricerco per id un appello ,ci sono appelli,appello non presente
 	@Test
 	public void test2VisualizzaStudentiPrenotati() {
 		GestioneAppello gestioneappello=new GestioneAppello();
@@ -47,6 +48,7 @@ public class AppelloTest {
 		
 		
 	}
+	//test3:ricerco per id un appello,ci sono appelli,nessuno studente prenotato
 	@Test
 	public void test3VisualizzaStudentiPrenotati() {
 		boolean nessuno;
@@ -73,6 +75,7 @@ public class AppelloTest {
 		
 		
 	}
+	//test4:ricerco per id un appello,ci sono appelli,visualizzo 1o+  studente/i prenotato/i
 	@Test
 	public void test4VisualizzaStudentiPrenotati() {
 		boolean presenti;
